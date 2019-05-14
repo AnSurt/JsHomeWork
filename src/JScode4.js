@@ -19,6 +19,7 @@ var a = [
     return acc;
 }, {});
 console.log(b)
+
 }
 
 

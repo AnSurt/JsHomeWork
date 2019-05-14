@@ -5,6 +5,8 @@ window.isEmpty = function (obj) {
     }
     return true;
   }
+  
   let som={};
   console.log(isEmpty(som));
+
 

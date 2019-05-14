@@ -5,6 +5,7 @@ window.MakeArr = function () {
     var i = 0;
   
     
+    
 
     var find = function (array, value) {
         for (var i = 0; i < array.length; i++) {

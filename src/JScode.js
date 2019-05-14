@@ -3,7 +3,8 @@ import MakeObj from './JScode4.js';
 import isEmpty from './JScode5.js';
 import factorial from './JScode6.js';
 
-window.years = function () {
+window.years = function () { 
+    
     let year = prompt('?')
     let yearEnd = prompt('?')
 
