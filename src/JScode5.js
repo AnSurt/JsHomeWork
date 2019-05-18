@@ -1,12 +1,9 @@
-
-window.isEmpty = function (obj) {
+window.showEmpty = function(){
+let isEmpty = function (obj) {
     for (var key in obj) {
       return false;
     }
     return true;
   }
-  
-  let som={};
-  console.log(isEmpty(som));
-
-
+console.log(isEmpty());
+}
