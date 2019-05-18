@@ -1,10 +1,9 @@
-
 window.MakeObj = function  (){
-var a = [
-    {id: 1,
+var userName = [
+    {id: 27,
       name: 'Mihail'
      },
-     {id: 2,
+     {id: 15,
          name: 'Marina'
      },
      {id: 3,
@@ -14,11 +13,11 @@ var a = [
          name: 'Ilya'
      },
  ] 
- var b = a.reduce((acc, item, index) => {
+ var NevUser = userName.reduce((acc, item, index) => {
+     index=userName[index].id
     acc[index]=item.name;
     return acc;
 }, {});
-console.log(b)
+console.log(NevUser)
+
 }
-
-

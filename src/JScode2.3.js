@@ -5,6 +5,7 @@ window.MakeArr = function () {
     var i = 0;
   
     
+    
 
     var find = function (array, value) {
         for (var i = 0; i < array.length; i++) {
@@ -15,9 +16,9 @@ window.MakeArr = function () {
     }
 
     while (arr.length !== 50) {
-        let a = ~~Math.floor(Math.random() * 100);
-        if (find(arr, a) == -1) {
-            arr[i] = a;
+        let randnam = ~~Math.floor(Math.random() * 100);
+        if (find(arr, randnam) == -1) {
+            arr[i] = randnam;
             i++;
         }
     }
@@ -66,5 +67,3 @@ var sortedArray = quick_Sort(arr)
 
 
 }
-
-
