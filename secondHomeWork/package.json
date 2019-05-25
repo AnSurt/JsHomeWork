@@ -1,0 +1,7 @@
+{
+    "name": "JSCourse",
+    "scripts": {
+        "build": "webpack",
+        "start": "webpack-dev-server --content-base build/"
+    }
+}

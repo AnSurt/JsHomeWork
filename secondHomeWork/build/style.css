@@ -1,0 +1,20 @@
+.flex-conteiner{
+display: flex;
+}
+.flex-element{
+    margin: 10px;
+   background-color: rgb(167, 135, 135);
+   width: 55px;
+   height: 25px;
+}
+.flex-element2{
+    width: 800px;
+    height: 900px;
+    background-color: blue;
+}
+.flex-columns{
+    width: 200px;
+    height: 800px;
+    margin: 10px;
+    background-color: rgb(43, 156, 28);
+}

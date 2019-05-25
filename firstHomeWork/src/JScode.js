@@ -1,7 +1,7 @@
-import MakeArr from './JScode2.3.js';
-import MakeObj from './JScode4.js';
-import isEmpty from './JScode5.js';
-import factorial from './JScode6.js';
+import MakeArr from './JScode2.3.js.js';
+import MakeObj from './JScode4.js.js';
+import isEmpty from './JScode5.js.js';
+import factorial from './JScode6.js.js';
 
 window.years = function () { 
  
