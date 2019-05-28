@@ -2,19 +2,31 @@
 display: flex;
 }
 .flex-element{
+    border: 1px solid black;
     margin: 10px;
    background-color: rgb(167, 135, 135);
    width: 55px;
    height: 25px;
 }
 .flex-element2{
+    border: 1px solid black;
+    display: flex;
     width: 800px;
     height: 900px;
     background-color: blue;
 }
 .flex-columns{
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
     width: 200px;
     height: 800px;
     margin: 10px;
     background-color: rgb(43, 156, 28);
+}
+.flex-card{
+    border: 1px solid black;
+    margin: 10px;
+    height: 100px;
+    background-color: rgba(245, 245, 220, 0.486);
 }

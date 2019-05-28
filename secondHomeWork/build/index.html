@@ -13,5 +13,66 @@
 
     </div>
   </div>
+  <h2>02. fetch()</h2>
+    <button onClick="runFetch()">fetch()</button>
+    <script>
+
+      function runFetch() {
+        fetch("http://localhost:8089/api/card")
+          .then(response => response.json())
+          .then(json => console.log(json));
+      }
+
+    </script>
+     <h2>02. fetch() playground</h2>
+     <div id="container1">
+       <select class="method">
+         <option value="get">GET</option>
+         <option value="post">POST</option>
+         <option value="put">PUT</option>
+         <option value="patch">PATCH</option>
+         <option value="delete">DELETE</option>
+       </select>
+       <input type="text" class="url" value="http://localhost:8089/api/card" size="50">
+       <textarea class="request" cols="30" rows="8">
+ {
+   "title":"New Card",
+   "columnId":5
+ }
+       </textarea>
+       <button onclick="playFetch()">Run!</button>
+       <div class="response-status"></div>
+       <pre class="response"></pre>
+     </div>
+     <script>
+ 
+       function playFetch() {
+         const url = document.querySelector('#container1 .url').value;
+         const method = document.querySelector('#container1 .method').value;
+         const requestBody = document.querySelector('#container1 .request').value;
+ 
+ 
+         fetch(url, {
+           mode: 'cors',
+           method,
+           headers: {
+             'Accept': 'application/json',
+             'Content-Type': 'application/json'
+           },
+           body: method === 'get' ? null : requestBody,
+         })
+           .then(response => {
+             const status = `${response.status} ${response.statusText}`;
+             document.querySelector('#container1 .response-status').textContent = status
+             return response.ok ? response.json() : Promise.reject(status);
+           })
+           .then(json => {
+             console.log(json);
+ 
+             document.querySelector('#container1 .response').textContent = JSON.stringify(json, null, 2);
+           });
+       }
+ 
+     </script>
 </body>
 </html>
