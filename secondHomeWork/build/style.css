@@ -4,25 +4,24 @@ display: flex;
 .flex-element{
     border: 1px solid black;
     margin: 10px;
-   background-color: rgb(167, 135, 135);
-   width: 55px;
-   height: 25px;
+    height: 25px;
+   background-color: rgba(216, 194, 194, 0.658);
+  
 }
 .flex-element2{
     border: 1px solid black;
     display: flex;
     width: 800px;
     height: 900px;
-    background-color: blue;
+    background-color: rgba(176, 191, 194, 0.26);
 }
 .flex-columns{
     border: 1px solid black;
     display: flex;
     flex-direction: column;
     width: 200px;
-    height: 800px;
     margin: 10px;
-    background-color: rgb(43, 156, 28);
+    background-color: rgba(141, 150, 140, 0.575);
 }
 .flex-card{
     border: 1px solid black;
