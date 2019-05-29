@@ -7,7 +7,7 @@ let card = (event) => {
             let button = event.target;
             let column = button.parentElement;
             const card = document.createElement('div');
-            card.innerText = JSON.stringify(json);
+            card.innerText = JSON.stringify(json.title);
             card.className = 'flex-card';
             column.appendChild(card);
         });
