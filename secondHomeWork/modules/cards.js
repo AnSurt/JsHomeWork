@@ -16,21 +16,54 @@ let getCards = () =>
 
 let drawCard = (element, column) => {
     const card = document.createElement('div');
-    const deleteButton = document.createElement("button");
-    deleteButton.addEventListener('click',()=>deleteCard(element.id));
-    deleteButton.innerText= 'Remove';
-
+    const deleteButton = document.createElement("div");
+    const updatebutton = document.createElement('div');
+    updatebutton.className = 'cardButton'
+    updatebutton.innerText = 'Update'
     card.innerText = element.title;
     card.className = 'flex-card';
     card.id = `card${element.id}`;
     card.appendChild(deleteButton);
+    card.appendChild(updatebutton);
+    deleteButton.className = 'cardButton'
+    deleteButton.addEventListener('click', () => deleteCard(element.id));
+    deleteButton.innerText = 'Remove';
+
+    card.draggable = 'true';
+
+    updatebutton.addEventListener('click', () => {
+        let newTitle = prompt('New Title');
+        updateCard({ ...element, title: newTitle })
+            .then(newCard => {
+                card.innerText = newCard.title;
+                card.appendChild(deleteButton);
+                card.appendChild(updatebutton);
+            });
+    });
+
+
     column.appendChild(card);
+
+
 }
+let updateCard = (card) =>
+
+    fetch("http://localhost:8089/api/card/" + card.id, {
+        method: 'PUT',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(card)
+    })
+        .then(response => response.json())
+
+
 
 let addCard = (columnId, title) => {
-   
+
     var card = {
-        title ,
+        title,
         columnId
     };
 
@@ -39,16 +72,16 @@ let addCard = (columnId, title) => {
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(card)
+        },
+        body: JSON.stringify(card)
     })
         .then(response => response.json())
         .then(element => console.log(element) || drawCard(element, document.getElementById(`column${element.columnId}`)));
 };
-let deleteCard =(id)=> fetch("http://localhost:8089/api/card/"+id.toString(), {
+let deleteCard = (id) => fetch("http://localhost:8089/api/card/" + id.toString(), {
     method: 'DELETE',
 })
-.then(()=> document.getElementById(`card${id}`).remove())
+    .then(() => document.getElementById(`card${id}`).remove())
 
 
 export { getCards, addCard };
