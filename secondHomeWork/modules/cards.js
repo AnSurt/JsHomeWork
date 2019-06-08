@@ -48,11 +48,8 @@ let drawCard = (element, column) => {
 
 
     column.appendChild(card);
-<<<<<<< HEAD
-    console.log(element.title , element.id);
-=======
->>>>>>> d7273e7da2da6602f3ed94c8f5c72c3022571387
 
+ 
 
 }
 let updateCard = (card) =>
@@ -91,7 +88,7 @@ let deleteCard = (id) => fetch("http://localhost:8089/api/card/" + id.toString()
     method: 'DELETE',
 })
     .then(() => document.getElementById(`card${id}`).remove())
-<<<<<<< HEAD
+
 
     
 
@@ -99,8 +96,7 @@ function onDragStart(event) {
   console.log('onDragStart', event.target.dataset.blockId);
   event.dataTransfer.setData("blockId", event.target.dataset.blockId);
 }
-=======
->>>>>>> d7273e7da2da6602f3ed94c8f5c72c3022571387
+
 
 
 export { getCards, addCard, updateCard, allCards };

@@ -1,7 +1,6 @@
 import { addCard, updateCard, allCards } from './cards.js';
 let getColumns = () =>
-<<<<<<< HEAD
-=======
+
     fetch("http://localhost:8089/api/column")
         .then(response => response.json())
         .then(json => {
@@ -17,9 +16,7 @@ let getColumns = () =>
                 myColumns.addEventListener('dragover', function (event) {
                     event.preventDefault();
                 });
-                myColumns.addEventListener('drop', function (event) {
-                    myColumns.appendChild(card)
-                });
+                myColumns.addEventListener('drop', onDrop);
 
                 const button = document.createElement('div');
                 button.innerText = '+';
@@ -33,14 +30,8 @@ let getColumns = () =>
 
             }
             )
->>>>>>> d7273e7da2da6602f3ed94c8f5c72c3022571387
-        });
-        myColumns.appendChild(button);
-        myBoard.appendChild(myColumns);
 
-      }
-      )
-    });
+        });
 
 
 
