@@ -19,30 +19,37 @@ let getCards = () =>
 let drawCard = (element, column) => {
     const card = document.createElement('div');
     const deleteButton = document.createElement("div");
-    const updatebutton = document.createElement('div');
-    updatebutton.className = 'cardButton'
-    updatebutton.innerText = 'Update'
-    card.innerText = element.title;
+    const cardTitle = document.createElement("div");
+    
+
+    cardTitle.innerText = element.title;
     card.className = 'flex-card';
+    
     card.addEventListener('dragstart', onDragStart);
     card.setAttribute('draggable', true);
-    card.setAttribute('data-block-id', element.id );    
+    card.setAttribute('data-block-id', element.id );  
+    card.contentEditable= 'false';  
+    cardTitle.contentEditable= 'true'; 
     card.id = `card${element.id}`;
     card.appendChild(deleteButton);
-    card.appendChild(updatebutton);
+    card.appendChild(cardTitle);
+    deleteButton.contentEditable= 'false';
     deleteButton.className = 'cardButton'
     deleteButton.addEventListener('click', () => deleteCard(element.id));
     deleteButton.innerText = 'Remove';
 
     card.draggable = 'true';
 
-    updatebutton.addEventListener('click', () => {
-        let newTitle = prompt('New Title');
+    cardTitle.addEventListener('click', (event) => {
+        
+        let newTitle=event.target.textContent;
+     
+        
         updateCard({ ...element, title: newTitle })
             .then(newCard => {
-                card.innerText = newCard.title;
+                cardTitle.innerText = newCard.title;
                 card.appendChild(deleteButton);
-                card.appendChild(updatebutton);
+                
             });
     });
 

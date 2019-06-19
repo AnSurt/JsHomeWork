@@ -1,12 +1,10 @@
 var path = require("path");
 
 module.exports = {
-  entry: {
-    app: ["./modules/board.js"]
-  },
+  mode: 'development',
+  entry: './modules/board.js',
   output: {
-    path: path.resolve(__dirname, "build"),
-    publicPath: "/assets/",
-    filename: "main.js"
+    path: path.resolve(__dirname, 'build'),
+    filename: 'main.js'
   }
-};
+}
