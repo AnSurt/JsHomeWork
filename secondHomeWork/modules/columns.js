@@ -68,8 +68,6 @@ function onDrop(event) {
     updateCard({...newCard, columnId: newID})
     .then(updatedCard => allCards.splice( allCards.indexOf(newCard), 1,updatedCard))
     .then(()=>console.log(allCards))
- 
-
   }
   catch (ex) {console .log("error", ex) }
  
