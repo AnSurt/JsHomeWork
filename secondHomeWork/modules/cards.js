@@ -1,9 +1,10 @@
-var allCards =[];
+let allCards = [];
 let getCards = () =>
 
     fetch("http://localhost:8089/api/card")
         .then(response => response.json())
         .then(json => {
+            console.log('cards', json)
             json.forEach(function (element) {
                 console.log(element);
 
@@ -12,8 +13,8 @@ let getCards = () =>
 
 
             })
-            allCards = json;
-            console.log('allCards',allCards);
+            allCards.push(...json);
+            console.log('allCards', allCards);
         });
 
 
@@ -21,11 +22,8 @@ let drawCard = (element, column) => {
     const card = document.createElement('div');
     const deleteButton = document.createElement("div");
     const cardTitle = document.createElement("div");
-
-
     cardTitle.innerText = element.title;
     card.className = 'flex-card';
-
     card.addEventListener('dragstart', onDragStart);
     card.setAttribute('draggable', true);
     card.setAttribute('data-block-id', element.id);
