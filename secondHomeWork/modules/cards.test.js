@@ -1,5 +1,5 @@
-import { drawCard } from './cards';
-import * as cardModule from './cards';
+import { drawCard } from 'cards.js';
+import * as cardModule from 'cards.js';
 
 describe('DOM', () => {
   describe('drawCard(): ', () => {
@@ -36,7 +36,7 @@ describe('DOM', () => {
     it('should call removeCard() function on remove button click', () => {
       drawCard(card, wrapper);
 
-      const spy = jest.spyOn(cardModule, 'removeCard');
+      const spy = jest.spyOn(cardModule, 'deleteCard');
 
       wrapper.querySelector('div').click();
 
