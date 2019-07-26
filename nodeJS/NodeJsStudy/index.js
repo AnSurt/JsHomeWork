@@ -24,6 +24,7 @@ function onLineReceived(data) {
     const pathToFile = dir
         ? path.join(pathToFiles, dir, base)
         : path.join(pathToFiles, base);
+        
 
     fs.writeFileSync(pathToFile, content)
 

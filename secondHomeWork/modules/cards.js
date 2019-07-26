@@ -106,4 +106,4 @@ function onDragStart(event) {
 
 
 
-export { getCards, addCard, updateCard, allCards };
+export { getCards, addCard, updateCard, allCards, drawCard };
