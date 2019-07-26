@@ -3,5 +3,17 @@
     "scripts": {
         "build": "webpack",
         "start": "webpack-dev-server --content-base build/"
+    },
+    "devDependencies": {
+        "babel-jest": "^24.8.0",
+        "jest": "^24.8.0"
+    },
+    "jest": {
+        "moduleFileExtensions": [
+            "js"
+        ],
+        "transform": {
+            ".*": "babel-jest"
+        }
     }
 }
