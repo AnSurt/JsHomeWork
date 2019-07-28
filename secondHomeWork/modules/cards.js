@@ -18,17 +18,19 @@ let getCards = () =>
         });
 
 
-let drawCard = (element, target) => {
+let drawCard = (element, column) => {
     const card = document.createElement('div');
     const deleteButton = document.createElement("div");
     const cardTitle = document.createElement("div");
     cardTitle.innerText = element.title;
     card.className = 'flex-card';
+    card.classList.add('card');
     card.addEventListener('dragstart', onDragStart);
     card.setAttribute('draggable', true);
     card.setAttribute('data-block-id', element.id);
     card.contentEditable = 'false';
     cardTitle.contentEditable = 'true';
+   
     card.id = `card${element.id}`;
     card.appendChild(cardTitle);
     card.appendChild(deleteButton);
@@ -53,8 +55,8 @@ let drawCard = (element, target) => {
         };
     });
 
-    target.append(card);
-   // column.appendChild(card);
+   
+    column.append(card);
 
 
 
