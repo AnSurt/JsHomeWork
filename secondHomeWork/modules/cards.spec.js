@@ -28,6 +28,7 @@ describe('card', () => {
 
       const cardContainer = wrapper.querySelector('.card');
       expect(cardContainer).not.toBeNull();
+      expect(cardContainer.getAttribute('data-block-id')).toEqual(String(card.id));
       expect(cardContainer.querySelector('div')).not.toBeNull();
     });
 
