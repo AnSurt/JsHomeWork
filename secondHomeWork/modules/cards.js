@@ -18,7 +18,7 @@ let getCards = () =>
         });
 
 
-let drawCard = (element, column) => {
+let drawCard = (element, target) => {
     const card = document.createElement('div');
     const deleteButton = document.createElement("div");
     const cardTitle = document.createElement("div");
@@ -53,8 +53,8 @@ let drawCard = (element, column) => {
         };
     });
 
-
-    column.appendChild(card);
+    target.append(card);
+   // column.appendChild(card);
 
 
 
@@ -106,4 +106,4 @@ function onDragStart(event) {
 
 
 
-export { getCards, addCard, updateCard, allCards };
+export { getCards, addCard, updateCard, allCards, drawCard };

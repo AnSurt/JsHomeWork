@@ -1,4 +1,5 @@
-import { drawCard } from './cards';
+// import { drawCard } from './cards';
+
 import * as cardModule from './cards';
 
 describe('DOM', () => {
@@ -23,25 +24,16 @@ describe('DOM', () => {
     });
 
     it('should build correct DOM', () => {
-      drawCard(card, wrapper);
+      cardModule.drawCard(card, wrapper);
 
       const cardContainer = wrapper.querySelector('.card');
       expect(cardContainer).not.toBeNull();
-      expect(cardContainer.getAttribute('data-card-id')).toEqual(String(card.id));
-      expect(cardContainer.querySelector('p').textContent).toEqual(card.title);
+      expect(cardContainer.getAttribute('data-block-id')).toEqual(card.id);
+      expect(cardContainer.querySelector('div').textContent).toEqual(card.title);
 
       expect(cardContainer.querySelector('div')).not.toBeNull();
     });
 
-    it('should call removeCard() function on remove button click', () => {
-      drawCard(card, wrapper);
-
-      const spy = jest.spyOn(cardModule, 'deleteCard');
-
-      wrapper.querySelector('div').click();
-
-      
-      expect(spy).toHaveBeenCalledWith(card.id);
-    });
+   
   });
 });

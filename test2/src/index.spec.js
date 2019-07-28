@@ -1,16 +1,16 @@
-import { drawCard } from './modules/cards';
-import * as cardModule from './modules/cards';
+import { insertCardToDOM } from './index.js';
+import * as cardModule from './card';
 
 describe('DOM', () => {
-  describe('drawCard(): ', () => {
+  describe('insertCardToDOM(): ', () => {
     let card;
     let wrapper;
 
     beforeEach(() => {
       card = {
-        title: "разобраться с изменением карточек",
-        columnId: "8",
-        id: 22
+        id: 111,
+        title: 'Learn JS',
+        columns: 5,
       };
 
       wrapper = document.createElement('div');
@@ -23,24 +23,23 @@ describe('DOM', () => {
     });
 
     it('should build correct DOM', () => {
-      drawCard(card, wrapper);
+      insertCardToDOM(card, wrapper);
 
       const cardContainer = wrapper.querySelector('.card');
       expect(cardContainer).not.toBeNull();
       expect(cardContainer.getAttribute('data-card-id')).toEqual(String(card.id));
       expect(cardContainer.querySelector('p').textContent).toEqual(card.title);
 
-      expect(cardContainer.querySelector('div')).not.toBeNull();
+      expect(cardContainer.querySelector('button')).not.toBeNull();
     });
 
     it('should call removeCard() function on remove button click', () => {
-      drawCard(card, wrapper);
+      insertCardToDOM(card, wrapper);
 
-      const spy = jest.spyOn(cardModule, 'deleteCard');
+      const spy = jest.spyOn(cardModule, 'removeCard');
 
-      wrapper.querySelector('div').click();
+      wrapper.querySelector('button').click();
 
-      
       expect(spy).toHaveBeenCalledWith(card.id);
     });
   });

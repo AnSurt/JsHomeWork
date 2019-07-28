@@ -1,0 +1,15 @@
+{
+  "name": "JSCourse",
+  "scripts": {
+    "build": "webpack",
+    "start": "webpack-dev-server --content-base build/"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js"
+    ],
+    "transform": {
+      ".*": "babel-jest"
+    }
+  }
+}
